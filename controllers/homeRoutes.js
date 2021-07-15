@@ -61,7 +61,7 @@ router.get('/post/:id', (req, res) => {
       return;
     }
     const onePost = getPostById.get({ plain: true});
-    res.render('onePost', {
+    res.render('one-post', {
       onePost,
       loggedIn: req.session.loggedIn
     });
@@ -77,14 +77,6 @@ router.get('/login', (req, res) => {
     return;
   }
   res.render('login');
-});
-
-router.get('/register', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
-  res.render('register');
 });
 
 module.exports = router;

@@ -31,7 +31,7 @@ router.get('/', auth, (req, res) => {
   });
 });
 
-router.get('/new-post/', auth, (req, res) => {
+router.get('/new-post', auth, (req, res) => {
   Post.findAll({
     where: {
       user_id: req.session.user_id,
