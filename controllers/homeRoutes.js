@@ -26,7 +26,6 @@ router.get('/', async (req, res) => {
     ]
   })
   const posts = postData.map(post => post.get({ plain: true }));
-  res.status(200).json(postData);
   res.render('homepage', {
     posts,
     user_id: req.session.user_id,
@@ -64,9 +63,8 @@ router.get('/post/:id', async (req, res) => {
     res.status(400).json({ message: 'No posts could be found with that ID!'});
     return;
   }
-  res.status(200).json(getPostById);
   const onePost = getPostById.get({ plain: true});
-  res.render('one-post', {
+  res.render('post', {
     onePost,
     loggedIn: req.session.loggedIn
   });
@@ -76,12 +74,12 @@ router.get('/post/:id', async (req, res) => {
   }
 })
 
-// router.get('/login', (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect('/');
-//     return;
-//   }
-//   res.render('login');
-// });
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
+});
 
 module.exports = router;
