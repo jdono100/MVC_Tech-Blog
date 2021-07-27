@@ -15,25 +15,27 @@
 <body>
   <nav class="navbar" role="navigation">
     <div class="navbar-brand">
-      <span class="is-size-2" id="titletext">Tech Talk</span>
+      <span class="is-size-1" id="titletext">Tech Talk</span>
       <a role="button" aria-label="menu" aria-expanded="false" data-target="nav-burger-menu" class="navbar-burger is-active">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
+    <div class="navbar-start">
+      <a href="/" class="navbar-item is-size-3">
+        <span class="fas fa-home"></span>
+      </a>
+    </div>
     <div id="nav-burger-menu" class="navbar-menu is-active">
       <div class="navbar-end">
-        <a href="/" class="navbar-item is-size-4">
-          <span class="fas fa-home"></span>
-        </a>
-        <a href="/dashboard" style="font-family: 'VT323', monospace;" class="navbar-item is-size-4">
+        <a href="/dashboard" style="font-family: 'VT323', monospace;" class="navbar-item is-size-3">
           Dashboard
         </a>
         {{#if loggedIn}}
-        <a class="logout navbar-item is-size-4" style="font-family: 'VT323', monospace;">Logout</a>
+        <a class="logout navbar-item is-size-3" style="font-family: 'VT323', monospace;">Logout</a>
         {{else}}
-        <a href="/login" class="navbar-item is-size-4" style="font-family: 'VT323', monospace;">Login</a>
+        <a href="/login" class="navbar-item is-size-3" style="font-family: 'VT323', monospace;">Login</a>
         {{/if}}
       </div>
     </div>
