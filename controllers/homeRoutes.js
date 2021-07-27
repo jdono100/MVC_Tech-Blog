@@ -82,4 +82,13 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/dashboard', (req, res) => {
+  if(!req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  } else {
+    res.render('dashboard');
+  }
+})
+
 module.exports = router;

@@ -17,6 +17,10 @@ a:hover {
   padding-right: 0.5rem;
 }
 
+.radioblock {
+  margin-top: 1rem;
+}
+
 .title {
   color: #485fc7;
 }
