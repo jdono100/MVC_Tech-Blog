@@ -1,7 +1,5 @@
-{{#each posts}}
-<div class="container">
-  <div class="block">
-    {{id}}
-  </div>
-</div>
+<div class="container" id="postcontainer">
+{{#each posts as |post|}}
+  {{> post-list}}
 {{/each}}
+</div>

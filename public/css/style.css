@@ -1,5 +1,6 @@
 .navbar {
-  background-color: #00b3b3;
+  background-color: #C79052;
+  min-height: 7.5vh;
 }
 
 a:hover {
@@ -14,4 +15,72 @@ a:hover {
   user-select: none;
   padding-left: 0.25rem;
   padding-right: 0.5rem;
+}
+
+.title {
+  color: #485fc7;
+}
+#linktitle:hover {
+  color: #363636;
+}
+
+.card-content {
+  padding-top: 0.75rem;
+}
+
+#postcontainer {
+  width: 90%;
+  padding-top: 1rem;
+}
+
+#onepostcontainer {
+  width: 90%;
+  padding-top: 1rem;
+}
+
+.onepostfooter {
+  padding: 1rem 1rem 1rem 1.5rem;
+}
+
+.card-footer-item {
+  justify-content: inherit;
+}
+
+.commenttext {
+  padding-bottom: 0.1rem;
+  border-left: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.commentuser {
+  padding-top: 0.1rem;
+  font-style: italic;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+#postid {
+  margin-bottom: 0.5rem;
+}
+
+#postuser {
+  margin-top: 0;
+  font-style: italic;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 4rem;
+  min-height: 22.5vh;
+}
+
+#bigcontainer {
+  position: relative;
+  min-height: 70vh;
+}
+
+.card-footer-item:not(:last-child) {
+  border-right: 1px solid black;
 }

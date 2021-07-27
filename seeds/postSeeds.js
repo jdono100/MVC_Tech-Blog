@@ -4,7 +4,8 @@ const postData = [
   {
     title: 'Java or JavaScript',
     post_text: 'Which one came first? Which is better? Why is coffee/an Indonesian island a part of the name of two integral programming languages? Who the heck copied my homework?',
-    user_id: 1
+    user_id: 1,
+    username: 'antom99',
   },
   {
     title: 'TCG Price Tracker reaches a trillion page views',

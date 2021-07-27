@@ -1,2 +1,37 @@
-{{onePost.title}}
-{{onePost.post_text}}
+<div class="container" id="onepostcontainer">
+  <div class="card">
+    <header class="card-header">
+      <div class="card-header-title">
+        <p class="title is-size-5 is-link">{{onePost.title}}</p>
+      </div>
+    </header>
+    <div class="card-content">
+      <p class="subtitle is-size-6" id="postuser">by {{onePost.User.username}} at {{format_time onePost.created_at}}, {{format_date onePost.created_at}}</p>
+      <div class="content">
+        <p>{{onePost.post_text}}</p>
+      </div>
+    </div>
+    <footer class="card-footer onepostfooter">
+      <div class="container">
+        <label class="label">Add a comment:</label>
+          <div class="columns is-mobile">
+            <div class="column is-fullwidth">
+              <div class="field">
+              <textarea type="text" class="input" id="commentpost{{onePost.id}}" data-postid="{{onePost.id}}" required></textarea>
+              </div>
+            </div>
+            <div class="column">
+              <button class="button is-link" id="submitcommentbtn">Submit</button>
+            </div>
+          </div>
+          <label class="label">Comments:</label>
+          <div class="columns is-mobile has-text-left">
+            {{#each onePost.comments as |comment|}}
+            {{> comments}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
