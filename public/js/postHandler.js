@@ -2,7 +2,6 @@ const postHandler = async (event) => {
   event.preventDefault();
   const title = document.querySelector('#new-post-title').value.trim();
   const post_text = document.querySelector('#newpostcontent').value.trim();
-  console.log(title, post_text);
   const response = await fetch('/api/posts', 
     {
       method: 'POST',
@@ -12,8 +11,7 @@ const postHandler = async (event) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      // document.location.replace('/login');
-      console.log('bad')
+      document.location.replace('/login');
     }
 };
 

@@ -11,11 +11,11 @@ router.get('/', (req, res) => {
     where: {
       user_id: req.session.user_id,
     },
-    attributes: ['id', 'title', 'post_text', 'created_at'],
+    attributes: ['id', 'title', 'post_text', 'created_at','updated_at'],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at','updated_at'],
         include: {
           model: User,
           attributes: ['username', 'github']
@@ -41,11 +41,11 @@ router.get('/new-post', (req, res) => {
     where: {
       user_id: req.session.user_id,
     },
-    attributes: ['id', 'title', 'post_text', 'created_at'],
+    attributes: ['id', 'title', 'post_text', 'created_at','updated_at'],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at', 'updated_at'],
         include: {
           model: User,
           attributes: ['username', 'github']
@@ -65,16 +65,16 @@ router.get('/new-post', (req, res) => {
   });
 });
 
-router.get('/edit/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
       id: req.params.id
     },
-    attributes: ['id', 'title', 'created_at', 'post_text'],
+    attributes: ['id', 'title', 'created_at', 'updated_at', 'post_text'],
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at','updated_at'],
         include: {
           model: User,
           attributes: ['username', 'github']
@@ -91,7 +91,6 @@ router.get('/edit/:id', (req, res) => {
       return;
     }
     const post = editPost.get({ plain: true });
-
     res.render('edit-post', {
       post,
       logged_in: true

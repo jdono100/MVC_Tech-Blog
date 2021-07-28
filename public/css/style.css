@@ -1,9 +1,10 @@
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden; 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 
 #newpostcard {
@@ -21,9 +22,9 @@ a:hover {
 
 #titletext {
   font-family: 'VT323', monospace;
-  -webkit-user-select: none; 
-  -moz-user-select: none; 
-  -ms-user-select: none;  
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   padding-left: 0.25rem;
   padding-right: 0.5rem;
@@ -48,6 +49,7 @@ a:hover {
 .title {
   color: #485fc7;
 }
+
 #linktitle:hover {
   color: #363636;
 }
@@ -74,7 +76,8 @@ a:hover {
   justify-content: inherit;
 }
 
-.editpostbtn, .deletepostbtn {
+.editpostbtn,
+.deletepostbtn {
   justify-content: center;
   border-top: 1px solid black;
 }
