@@ -1,0 +1,36 @@
+<div class="container" id="dbcontainer">
+  <div class="card" id="newpostcard">
+    <header class="card-header" id="dbheader">
+      <div class="container">
+        <label class="label" id="newposttitle">Submit a new post:</label>
+        <div class="columns is-mobile" id="newpostcols">
+          <div class="column is-fullwidth">
+            <div class="field">
+              <div class="control">
+                <input class="input" type="text" id="new-post-title" placeholder="Title" required>
+              </div>
+            </div>
+          </div>
+          <div class="column is-fullwidth">
+            <div class="field">
+              <div class="control">
+                <textarea type="text" id="newpostcontent" class="input" placeholder="Content" required></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <button class="button is-link" id="submitnewpostbtn">Submit</button>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  {{#each posts as |post|}}
+  {{> post-list-db}}
+  {{/each}}
+</div>
+
+<script src="../js/postHandler.js"></script>
+{{#if posts}}
+<script src="../js/dbHandler.js"></script>
+{{/if}}

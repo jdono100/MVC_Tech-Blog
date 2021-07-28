@@ -1,0 +1,20 @@
+<div class="block">
+  <div class="card dbpostcard">
+    <header class="card-header">
+      <a href="/post/{{id}}" class="postEntry">
+        <div class="card-header-title">
+          <p class="title is-size-5 is-link" id="dblinktitle">{{title}}</p>
+        </div>
+      </a>
+    </header>
+    <div class="card-content">
+      <p class="subtitle is-size-6" id="dbposttime">{{format_time created_at}}, {{format_date created_at}}</p>
+    <div class="content">
+      <p>{{post_text}}</p>
+    </div>
+  </div>
+  <footer class="card-footer has-text-centered">
+    <a class="card-footer-item editpostbtn" data-postid="{{id}}">Edit</a>
+    <a class="card-footer-item deletepostbtn" data-postid="{{id}}">Delete</a>
+  </footer>
+</div>

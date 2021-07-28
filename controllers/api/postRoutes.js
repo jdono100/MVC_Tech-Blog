@@ -60,8 +60,8 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', (res, req) => {
-  Post.create({
+router.post('/', async (req, res) => {
+  await Post.create({
     title: req.body.title,
     post_text: req.body.post_text,
     user_id: req.session.user_id
@@ -90,29 +90,6 @@ router.put(':/id', (req, res) => {
       return;
     }
     res.json(updatePost);
-  }).catch((err) => {
-    console.log(err);
-    res.status(500).json(err);
-  });
-});
-
-router.delete(':/id', (req, res) => {
-  Post.destroy(
-    {
-      title: req.body.title,
-      post_text: req.body.post_text
-    },
-    {
-      where: {
-        id: req.params.id
-      }
-    }
-  ).then((deletePost) => {
-    if (!deletePost) {
-      res.status(404).json({ message: 'No posts could be found with that ID!'});
-      return;
-    }
-    res.json(deletePost);
   }).catch((err) => {
     console.log(err);
     res.status(500).json(err);

@@ -16,23 +16,21 @@
   <nav class="navbar" role="navigation">
     <div class="navbar-brand">
       <span class="is-size-1" id="titletext">Tech Talk</span>
-      <a role="button" aria-label="menu" aria-expanded="false" data-target="nav-burger-menu" class="navbar-burger is-active">
+      <a id="navburgerbtn" role="button" aria-label="menu" aria-expanded="false" data-target="nav-burger-menu" class="navbar-burger">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
-    </div>
-    <div class="navbar-start">
-      <a href="/" class="navbar-item is-size-3">
+      <a href="/" class="navbar-item is-size-3" id="mainhomebtn">
         <span class="fas fa-home"></span>
       </a>
     </div>
-    <div id="nav-burger-menu" class="navbar-menu is-active">
+    <div id="nav-burger-menu" class="navbar-menu">
       <div class="navbar-end">
         <a href="/dashboard" style="font-family: 'VT323', monospace;" class="navbar-item is-size-3">
           Dashboard
         </a>
-        {{#if loggedIn}}
+        {{#if logged_in}}
         <a class="logout navbar-item is-size-3" style="font-family: 'VT323', monospace;">Logout</a>
         {{else}}
         <a href="/login" class="navbar-item is-size-3" style="font-family: 'VT323', monospace;">Login</a>
@@ -55,7 +53,7 @@
       </p>
     </div>
   </footer>
-  {{#if loggedIn}}
+  {{#if logged_in}}
   <script src="../js/logout.js"></script>
   {{/if}}
   <script src="../js/main.js"></script>

@@ -1,3 +1,15 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+#newpostcard {
+  margin: 1.5rem auto 1.5rem auto;
+}
+
 .navbar {
   background-color: #C79052;
   min-height: 7.5vh;
@@ -19,6 +31,18 @@ a:hover {
 
 .radioblock {
   margin-top: 1rem;
+}
+
+#newposttitle {
+  padding: 1rem;
+}
+
+.navbar-burger {
+  height: auto;
+}
+
+#newpostcols {
+  padding: 1rem;
 }
 
 .title {
@@ -50,6 +74,15 @@ a:hover {
   justify-content: inherit;
 }
 
+.editpostbtn, .deletepostbtn {
+  justify-content: center;
+  border-top: 1px solid black;
+}
+
+.dbpostcard {
+  margin: 0.5rem;
+}
+
 .commenttext {
   padding-bottom: 0.1rem;
   border-left: 1px solid black;
@@ -70,6 +103,10 @@ a:hover {
 
 #postuser {
   margin-top: 0;
+  font-style: italic;
+}
+
+#dbposttime {
   font-style: italic;
 }
 

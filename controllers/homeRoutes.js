@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
   res.render('homepage', {
     posts,
     user_id: req.session.user_id,
-    loggedIn: req.session.loggedIn
+    logged_in: req.session.logged_in
   });
   } catch (err) {
     console.log(err);
@@ -66,7 +66,7 @@ router.get('/post/:id', async (req, res) => {
   const onePost = getPostById.get({ plain: true});
   res.render('post', {
     onePost,
-    loggedIn: req.session.loggedIn
+    logged_in: req.session.logged_in
   });
   } catch (err) {
     console.log(err);
@@ -75,20 +75,11 @@ router.get('/post/:id', async (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
+  if (req.session.logged_in) {
     res.redirect('/');
     return;
   }
   res.render('login');
 });
-
-router.get('/dashboard', (req, res) => {
-  if(!req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  } else {
-    res.render('dashboard');
-  }
-})
 
 module.exports = router;

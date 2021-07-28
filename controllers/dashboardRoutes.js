@@ -3,6 +3,10 @@ const { User, Post, Comment } = require('../models');
 const auth = require('../utils/auth');
 
 router.get('/', (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
   Post.findAll({
     where: {
       user_id: req.session.user_id,
@@ -23,8 +27,8 @@ router.get('/', (req, res) => {
       }
     ]
   }).then((allPosts) => {
-    const post = allPosts.map(posts => posts.get({ plain: true }));
-    res.render('dashboard', { post, loggedIn: true});
+    const posts = allPosts.map(post => post.get({ plain: true }));
+    res.render('dashboard', { posts, logged_in: true});
   }).catch((err) => {
     console.log(err);
     res.status(400).json();
@@ -54,7 +58,7 @@ router.get('/new-post', (req, res) => {
     ]
   }).then((newPost) => {
     const post = newPost.map(post => post.get({ plain: true }));
-    res.render('new-post', { post, loggedIn: true});
+    res.render('new-post', { post, logged_in: true});
   }).catch((err) => {
     console.log(err);
     res.status(400).json();
@@ -90,7 +94,7 @@ router.get('/edit/:id', (req, res) => {
 
     res.render('edit-post', {
       post,
-      loggedIn: true
+      logged_in: true
     });
   }).catch((err) => {
     console.log(err);
@@ -98,8 +102,8 @@ router.get('/edit/:id', (req, res) => {
   });
 });
 
-router.delete('/:id', (req, res) => {
-  Post.destroy(
+router.delete('/:id', async (req, res) => {
+  await Post.destroy(
     {
       where: {
         id: req.params.id
